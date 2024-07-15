@@ -2,8 +2,7 @@ import { Box } from '@mui/material'
 import Typography from '@mui/material/Typography'
 
 export default function CardInfoLine({ props }) {
-  console.log(props)
-  const { left, right } = props
+  const { left, right, rightBold = false, leftBold = false } = props
   return (
     <Box
       sx={{
@@ -13,10 +12,18 @@ export default function CardInfoLine({ props }) {
         justifyContent: 'space-between'
       }}
     >
-      <Typography variant="body2" color="text.secondary">
+      <Typography
+        variant="body2"
+        color="text.secondary"
+        sx={leftBold && { fontWeight: 'bold' }}
+      >
         {left}
       </Typography>
-      <Typography variant="body2" color="text.secondary">
+      <Typography
+        variant="body2"
+        color="text.secondary"
+        sx={rightBold && { fontWeight: 'bold' }}
+      >
         {right}
       </Typography>
     </Box>
